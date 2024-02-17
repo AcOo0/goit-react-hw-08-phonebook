@@ -1,9 +1,9 @@
-import MyContacts from "./MyContacts/MyContacts";
+import AppRoutes from "./AppRoutes";
 
 export const App = () => {
   return (
     <div className="App">
-      <MyContacts />
+      <AppRoutes />
     </div>    
   );
 };
