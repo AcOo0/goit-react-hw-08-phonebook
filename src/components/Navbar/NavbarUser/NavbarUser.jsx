@@ -1,10 +1,15 @@
+import { useSelector } from "react-redux";
+
+import { selectUser } from "../../../redux/auth/auth-selectors";
+
 import styles from "./navbar-user.module.css";
 
 const NavbarUser = () => {
+    const { email } = useSelector(selectUser);
+
     return (
         <div className={styles.block}>
-            Email
-            |
+            {email}
             <button>Logout</button>
         </div>
     )
