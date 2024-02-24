@@ -1,0 +1,12 @@
+.wrap {
+  text-align: center;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:hover {
+  font-weight: bold;
+  border-bottom: 1px solid black;
+}

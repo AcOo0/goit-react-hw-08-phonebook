@@ -1,4 +1,6 @@
 .loader {
   margin: 0 auto;
   display: flex;
+  align-items: center;
+  flex-direction: column;
 }

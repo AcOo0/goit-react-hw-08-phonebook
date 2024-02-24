@@ -14,10 +14,10 @@ export const selectFilteredContacts = createSelector(
 
         const normalizedFilter = filter.toLowerCase();
 
-        const filteredContacts = items.filter(({ name, phone }) => {
+        const filteredContacts = items.filter(({ name, number }) => {
             const normalizedName = name.toLowerCase();
 
-            return (normalizedName.includes(normalizedFilter) || phone.includes(normalizedFilter))
+            return (normalizedName.includes(normalizedFilter) || number.includes(normalizedFilter))
         })
         return filteredContacts
     }

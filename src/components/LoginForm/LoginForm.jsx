@@ -1,5 +1,7 @@
 import { useState, useId } from "react"
 
+import { Button } from "antd";
+
 import styles from "./login-form.module.css"
 
 const INITIAL_STATE = {
@@ -34,10 +36,11 @@ const LoginForm = ({ onSubmit }) => {
     const { email, password } = state;
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.block}>
-                <label htmlFor={emailId}>Email:</label>
+                {/* <label htmlFor={emailId}>Email:</label> */}
                 <input
+                    className={styles.input}
                     value={email}
                     onChange={handleChange}
                     id={emailId}
@@ -47,8 +50,9 @@ const LoginForm = ({ onSubmit }) => {
                     placeholder="Email" />
             </div>
             <div className={styles.block}>
-                <label htmlFor={passwordId}>Password:</label>
+                {/* <label htmlFor={passwordId}>Password:</label> */}
                 <input
+                    className={styles.input}
                     value={password}
                     onChange={handleChange}
                     id={passwordId}
@@ -57,7 +61,7 @@ const LoginForm = ({ onSubmit }) => {
                     type="password"
                     placeholder="Password" />
             </div>
-            <button type="submit">Login</button>
+            <button type="submit" className={styles.btn}>Login</button>
         </form>
     )
 };

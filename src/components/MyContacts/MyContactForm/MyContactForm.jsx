@@ -10,28 +10,12 @@ const INITIAL_STATE = {
     contacts: [],
     filter: '',
     name: '',
-    phone: ''
+    number: ''
 };
 
 const MyContactForm = () => {
     const [state, setState] = useState({ ...INITIAL_STATE });
-    // const {items} = useSelector(selectAllContacts);
     const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     dispatch(fetchContacts());
-    // }, []);
-    // const isDublicate = ({ name, phone }) => {
-    //     const normalizedName = name.toLowerCase();
-    //     const normalizedPhone = phone.trim();
-        
-    //     const dublicate = items.find(item => {
-    //         const normalizeCurrentName = item.name.toLowerCase();
-    //         const normalizeCurrentPhone = item.phone.trim();
-    //         return (normalizeCurrentName === normalizedName || normalizeCurrentPhone === normalizedPhone)
-    //     })
-    //     return Boolean(dublicate);
-    // };
 
     const onAddContact = (data) => {
         dispatch(addContact(data));
@@ -48,9 +32,7 @@ const MyContactForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         onAddContact({ ...state });
-        // if (!isDublicate({ ...state })) {
             reset();
-        // }
     };
 
     const reset = () => {
@@ -61,7 +43,7 @@ const MyContactForm = () => {
     const contactNameId = nanoid();
     const contactPhoneId = nanoid();
     
-    const { name, phone } = state;
+    const { name, number } = state;
 
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -71,6 +53,7 @@ const MyContactForm = () => {
                     value={name}
                     onChange={handleChange}
                     id={contactNameId}
+                    className={styles.input}
                     name="name"
                     required
                     type="text"
@@ -79,10 +62,11 @@ const MyContactForm = () => {
             <div className={styles.formElements}>
                 <label htmlFor={contactPhoneId}>Phone</label>
                 <input
-                    value={phone}
+                    value={number}
                     onChange={handleChange}
                     id={contactPhoneId}
-                    name="phone"
+                    className={styles.input}
+                    name="number"
                     required
                     pattern="^[+0-9\-\(\)\s]+$"
                     type="tel"

@@ -3,3 +3,17 @@
   align-items: center;
   gap: 10px;
 }
+
+.logout_btn {
+  padding: 4px 12px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(255, 162, 112);
+  border-radius: 10px;
+}
+
+.logout_btn:hover {
+  background-color: rgb(229, 129, 75);
+  border: none;
+}

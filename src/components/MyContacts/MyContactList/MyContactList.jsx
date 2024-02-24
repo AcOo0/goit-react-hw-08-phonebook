@@ -5,6 +5,8 @@ import { fetchContacts, deleteContact } from "../../../redux/contacts/contacts-o
 
 import { selectContacts, selectFilteredContacts } from '../../../redux/contacts/constants-selectors';
 
+import { Loader } from '../../Loader/Loader';
+
 import styles from "./my-contact-list.module.css"
 
 const MyContactList = () => {
@@ -20,12 +22,12 @@ const MyContactList = () => {
         dispatch(deleteContact(id));
     };
 
-    const elements = items.map(({ id, name, phone }) => 
+    const elements = items.map(({ id, name, number }) => 
             <li
                 className={styles.list}
                 key={id}
             >
-                {name}: {phone}
+                {name}: {number}
                 <button
                     onClick={() => onDeleteContact(id)}
                     className={styles.btn}
@@ -37,7 +39,7 @@ const MyContactList = () => {
 
     return (
         <ul>
-            {isLoading && <p>...Loading</p>}
+            {isLoading && <Loader/>}
             {error && <p>{error}</p>}
             {elements}
         </ul>

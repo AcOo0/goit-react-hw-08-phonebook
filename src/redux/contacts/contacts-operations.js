@@ -4,7 +4,7 @@ import * as contactsApi from "../../api/contacts-api";
 
 export const fetchContacts = createAsyncThunk(
     "contacts/fetchAll",
-    async (_, {rejectWithValue}) => {
+    async (_, { rejectWithValue }) => {
         try {
             const data = await contactsApi.requestFetchContacts();
             return data;
@@ -27,19 +27,19 @@ export const addContact = createAsyncThunk(
         }
     },
     {
-        condition: ({name, phone}, { getState }) => {
+        condition: ({name, number}, { getState }) => {
             const { contacts } = getState();
             const normalizedName = name.toLowerCase();
-            const normalizedPhone = phone.trim();
+            const normalizedPhone = number.trim();
         
             const dublicate = contacts.items.find(item => {
                 const normalizeCurrentName = item.name.toLowerCase();
-                const normalizeCurrentPhone = item.phone.trim();
+                const normalizeCurrentPhone = item.number.trim();
                 return (normalizeCurrentName === normalizedName || normalizeCurrentPhone === normalizedPhone)
             })
 
             if (dublicate) {
-                alert(`${name} or Number: ${phone} is already in contacts.`);
+                alert(`${name} or Number: ${number} is already in contacts.`);
                 return false;
             }
         }

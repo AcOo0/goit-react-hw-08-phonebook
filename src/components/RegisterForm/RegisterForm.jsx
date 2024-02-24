@@ -36,11 +36,12 @@ const RegisterForm = ({ onSubmit }) => {
     const { name, email, password } = state;
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.block}>
-                <label htmlFor={nameId}>Name:</label>
+                {/* <label htmlFor={nameId}>Name:</label> */}
                 <input
                     value={name}
+                    className={styles.input}
                     onChange={handleChange}
                     id={nameId}
                     type="text"
@@ -50,9 +51,10 @@ const RegisterForm = ({ onSubmit }) => {
                 />
             </div>
             <div className={styles.block}>
-                <label htmlFor={emailId}>Email:</label>
+                {/* <label htmlFor={emailId}>Email:</label> */}
                 <input
                     value={email}
+                    className={styles.input}
                     onChange={handleChange}
                     id={emailId}
                     name="email"
@@ -61,9 +63,10 @@ const RegisterForm = ({ onSubmit }) => {
                     placeholder="Email" />
             </div>
             <div className={styles.block}>
-                <label htmlFor={passwordId}>Password:</label>
+                {/* <label htmlFor={passwordId}>Password:</label> */}
                 <input
                     value={password}
+                    className={styles.input}
                     onChange={handleChange}
                     id={passwordId}
                     name="password"
@@ -71,7 +74,7 @@ const RegisterForm = ({ onSubmit }) => {
                     type="password"
                     placeholder="Password" />
             </div>
-            <button type="submit">Register</button>
+            <button type="submit" className={styles.btn}>Register</button>
         </form>
     )
 };

@@ -13,7 +13,7 @@ const Navbar = () => {
         
     return (
         <nav className={styles.navbar}>
-            <Link to="/">Logo</Link>
+            {/* <Link to="/" className={styles.link}>Home</Link> */}
             <NavbarMenu />
             {isLogin ? <NavbarUser /> : <NavbarAuth />}
         </nav>
