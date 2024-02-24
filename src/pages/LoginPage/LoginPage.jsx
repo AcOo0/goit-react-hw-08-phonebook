@@ -4,6 +4,7 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 
 import { login } from "../../redux/auth/auth-operations";
 import { Loader } from "../../components/Loader/Loader";
+import Notiflix from 'notiflix';
 
 import { selectAuthLoading, selectAuthError } from "../../redux/auth/auth-selectors";
 
@@ -22,7 +23,7 @@ const LoginPage = () => {
             {/* <h1>Login</h1> */}
             {authLoading && <Loader />}
             <LoginForm onSubmit={handleLogin}/>
-            {authError && <p style={{ color: "red" }}>{authError}</p>}
+            {authError && Notiflix.Notify.failure('Oops! Something went wrong. Try again', {timeout: 2500},)}
         </div>
     )
 }

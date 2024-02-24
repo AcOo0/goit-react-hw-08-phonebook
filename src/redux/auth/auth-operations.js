@@ -23,7 +23,7 @@ export const login = createAsyncThunk(
             return data;
         }
         catch (error) {
-            return rejectWithValue(error.response.data.message);
+            return rejectWithValue(error.message);
         }
     }
 )

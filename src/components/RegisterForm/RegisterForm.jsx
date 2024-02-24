@@ -22,12 +22,12 @@ const RegisterForm = ({ onSubmit }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit({ ...state });
-        reset();
+        // reset();
     };
 
-    const reset = () => {
-        setState({ ...INITIAL_STATE });
-    };
+    // const reset = () => {
+    //     setState({ ...INITIAL_STATE });
+    // };
 
     const nameId = useId();
     const emailId = useId();
