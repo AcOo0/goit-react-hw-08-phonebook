@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import NavbarMenu from "./NavbarMenu/NavbarMenu";
 import NavbarAuth from "./NavbarAuth/NavbarAuth";
